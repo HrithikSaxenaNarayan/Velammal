@@ -64,6 +64,17 @@ public class lec1 {
         return foundAtIdx;
     }
 
+    public static int span(int[] arr) {
+        int maxElem = -(int) 1e9;
+        int minElem = (int) 1e9;
+
+        for (int elem : arr) {
+            maxElem = Math.max(elem, maxElem);
+            minElem = Math.min(elem, minElem);
+        }
+        return (maxElem - minElem);
+    }
+
     public static void main(String[] args) {
         System.out.println(find(input1(scn.nextInt()), scn.nextInt()));
     }
