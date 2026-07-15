@@ -23,11 +23,28 @@ public class lec1{
     }
 
     public static int max(int[] arr) {
-        int maxElem = 0;
-
+        int maxElem = -(int) 1e9;
+        for(int elem : arr) {
+            maxElem = Math.max(maxElem, elem);
+        }
         return maxElem;
     }
 
+    public static int max2(int[] arr) {
+        if (arr.length == 0) {
+            return Integer.MIN_VALUE;
+        }
+        int maxElem = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (maxElem < arr[i + 1]) {
+                maxElem = arr[i + 1];
+            }
+            else {
+                maxElem = arr[i];
+            }
+        }
+        return maxElem;
+    }
     public static int min(int[] arr) {
         int minElem = 0;
 
@@ -36,6 +53,9 @@ public class lec1{
 
 
     public static void main(String[] args){
-        display2(input1(scn.nextInt()));
+        // display2(input1(scn.nextInt()));
+        System.out.println(max2(input1(scn.nextInt())));
     }
 }
+
+// https://github.com/HrithikSaxenaNarayan/Velammal
