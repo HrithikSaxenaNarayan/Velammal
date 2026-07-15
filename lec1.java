@@ -39,8 +39,6 @@ public class lec1 {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < arr[i + 1]) {
                 maxElem = arr[i + 1];
-            } else {
-                maxElem = arr[i];
             }
         }
         return maxElem;
@@ -76,9 +74,9 @@ public class lec1 {
     }
 
     public static void swapElems(int[] arr, int i, int j) {
-        int temp = i;
-        i = j;
-        j = temp;
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
     public static int[] reverseArray(int[] arr) {
@@ -92,8 +90,23 @@ public class lec1 {
         return arr;
     }
 
+    public static int[] inverseArray(int[] arr) {
+        int[] arr2 = new int[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr2[arr[i]] = i;
+        }
+        return arr2;
+    }
+
+    public static int[] rotateArray(int[] arr, int rot) {
+        int[] arr2 = new int[arr.length];
+
+        return arr2;
+    }
+
     public static void main(String[] args) {
-        display1(reverseArray(input1(scn.nextInt())));
+        display1(inverseArray(input1(scn.nextInt())));
     }
 }
 
