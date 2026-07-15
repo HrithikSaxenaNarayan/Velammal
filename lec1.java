@@ -75,8 +75,25 @@ public class lec1 {
         return (maxElem - minElem);
     }
 
+    public static void swapElems(int[] arr, int i, int j) {
+        int temp = i;
+        i = j;
+        j = temp;
+    }
+
+    public static int[] reverseArray(int[] arr) {
+        int i = 0;
+        int j = arr.length - 1;
+        while (i < j) {
+            swapElems(arr, i, j);
+            i++;
+            j--;
+        }
+        return arr;
+    }
+
     public static void main(String[] args) {
-        System.out.println(find(input1(scn.nextInt()), scn.nextInt()));
+        display1(reverseArray(input1(scn.nextInt())));
     }
 }
 
