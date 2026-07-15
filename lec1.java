@@ -46,8 +46,10 @@ public class lec1{
         return maxElem;
     }
     public static int min(int[] arr) {
-        int minElem = 0;
-
+        int minElem = (int) 1e9;
+        for (int elem : arr) {
+            minElem = Math.min(elem, minElem);
+        }
         return minElem;
     }
 
