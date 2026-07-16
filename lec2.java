@@ -21,10 +21,10 @@ public class lec2 {
         int n = arr.length, m = brr.length;
         int ansArrLen = Math.max(n, m) + 1;
         int[] ansArr = new int[ansArrLen];
-        int i = n-1, j = m - 1, k = ansArr.length - 1, carry = 0;
+        int i = n - 1, j = m - 1, k = ansArrLen - 1, carry = 0;
 
         while (k >= 0) {
-            int sum = ((i >= 0) ? arr[i] : 0) + ((j >= 0) ? brr[j] : 0) + carry;
+            int sum = carry + ((i >= 0) ? arr[i] : 0) + ((j >= 0) ? brr[j] : 0);
 
             carry = sum / 10;
             ansArr[k] = sum % 10;
@@ -39,7 +39,32 @@ public class lec2 {
         }
     }
 
+
+    public static int[] subTwoArrays(int[] arr, int[] brr) {
+        int n = arr.length, m = brr.length;
+        int ansArrLen = Math.max(n, m);
+        int[] ansArr = new int[ansArrLen];
+        int i = n - 1, j = m - 1, k = ansArrLen - 1, borrow = 0;
+
+        while(k >= 0) {
+            int diff = borrow + ((i >= 0)? arr[i] : 0) - ((j >= 0) ? brr[j] : 0);
+
+            if (diff < 0) {
+                borrow = -1;
+                diff += 10;
+            }
+            else {
+                borrow = 0;
+            }
+            ansArr[k] = diff;
+
+            i--;
+            j--;
+            k--;
+        }
+        return ansArr;
+    }
     public static void main(String[] args) {
-        addTwoArrays(input1(scn.nextInt()), input1(scn.nextInt()));
+        display1(subTwoArrays(input1(scn.nextInt()), input1(scn.nextInt())));
     }
 }
